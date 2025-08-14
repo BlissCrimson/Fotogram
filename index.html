@@ -19,30 +19,55 @@
     <main>
         <h1>Your personal photo album</h1>
 
-        <div>
-            <a>
-                <img class="img_little" src="./img/aussichtlaboe.jpg" alt="Aussicht von LaBoe" srcset="">
-            </a>
-            <a>
-                <img class="img_little" src="./img/crimsonclouds.jpg" alt="Rotfarbene Wolken">
-            </a>
-            <a>
-                <img class="img_little" src="./img/harz.jpg" alt="Aussicht im Harz">
-            </a>
-            <a>
-                <img class="img_little" src="./img/sirbenjaminleeguiness.jpg" alt="Sir Benjamin Lee Guiness">
+        <div class="album">
 
-            </a>
-            <a>
-                <img class="img_little" src="./img/limmerbeinacht.jpg" alt="Hannover von Limmer bei Nacht">
-            </a>
+            <div onclick="openDialog()" id="img1">
+                <a>
+                    <img class="img_little" src="./img/aussichtlaboe.jpg" alt="Aussicht von LaBoe" srcset="">
+                </a>
+            </div>
+
+            <div onclick="openDialog()">
+                <a>
+                    <img class="img_little" src="./img/crimsonclouds.jpg" alt="Rotfarbene Wolken">
+                </a>
+            </div>
+
+            <div onclick="openDialog()">
+                <a>
+                    <img class="img_little" src="./img/harz.jpg" alt="Aussicht im Harz">
+                </a>
+            </div>
+
+            <div onclick="openDialog()">
+                <a>
+                    <img class="img_little" src="./img/sirbenjaminleeguiness.jpg" alt="Sir Benjamin Lee Guiness">
+
+                </a>
+            </div>
+
+            <div onclick="openDialog()">
+                <a>
+                    <img class="img_little" src="./img/limmerbeinacht.jpg" alt="Hannover von Limmer bei Nacht">
+                </a>
+            </div>
         </div>
     </main>
-    <dialog id="dialog">
+    <dialog id="imageDialog" class="dialogWindow">
+        <header class="dialog_header">
+            <h2 id="header-title"></h2>
+            <button onclick="closeDialog()">X</button>
+        </header>
+        <section class="section_dialog">
+            <p>hier soll ein bild zu sehen sein.</p>
+        </section>
+        <footer class="dialog_footer">
 
+        </footer>
     </dialog>
     <footer>
         <img src="#" alt="Logo">
+        <br>
         <span>&copy; 2025 Matthias Tausch</span>
     </footer>
 </body>
