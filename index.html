@@ -12,8 +12,8 @@
 <body>
     <div onclick="toggleOverlay()" id="overlay" class="overlay"></div>
 
-    <header>
-        <img class="header-img" src="./img/Fotogram_Logo.svg" alt="Fotogram Logo">
+    <header class="header_main">
+        <img class="header_main_img" src="./img/Fotogram_Logo.svg" alt="Fotogram Logo">
     </header>
 
     <main>
@@ -21,51 +21,55 @@
 
         <div class="album">
 
-            <div onclick="openDialog()" id="img1">
+            <div aria-haspopup="dialog" aria-controls="imageDialog" onclick="openDialog()">
                 <a>
-                    <img class="img_little" src="./img/aussichtlaboe.jpg" alt="Aussicht von LaBoe" srcset="">
+                    <img id="img1" class="img_little" src="./img/aussichtlaboe.jpg" alt="Aussicht von LaBoe" srcset="">
                 </a>
             </div>
 
-            <div onclick="openDialog()">
+            <div aria-haspopup="dialog" aria-controls="imageDialog" onclick="openDialog()">
                 <a>
                     <img class="img_little" src="./img/crimsonclouds.jpg" alt="Rotfarbene Wolken">
                 </a>
             </div>
 
-            <div onclick="openDialog()">
+            <div aria-haspopup="dialog" aria-controls="imageDialog" onclick="openDialog()">
                 <a>
                     <img class="img_little" src="./img/harz.jpg" alt="Aussicht im Harz">
                 </a>
             </div>
 
-            <div onclick="openDialog()">
+            <div aria-haspopup="dialog" aria-controls="imageDialog" onclick="openDialog()">
                 <a>
                     <img class="img_little" src="./img/sirbenjaminleeguiness.jpg" alt="Sir Benjamin Lee Guiness">
 
                 </a>
             </div>
 
-            <div onclick="openDialog()">
+            <div aria-haspopup="dialog" aria-controls="imageDialog" onclick="openDialog()">
                 <a>
                     <img class="img_little" src="./img/limmerbeinacht.jpg" alt="Hannover von Limmer bei Nacht">
                 </a>
             </div>
         </div>
     </main>
-    <dialog id="imageDialog" class="dialogWindow">
+    <dialog id="imageDialog" aria-labelledby="dialogTitle" aria-describedby="" class="dialogWindow">
         <header class="dialog_header">
-            <h2 id="header-title"></h2>
-            <button onclick="closeDialog()">X</button>
+            <h2 id="dialogtitle"></h2>
+            <button aria-label="Dialog schließen" onclick="closeDialog()"><i class="arrow arrow_right"></i><i
+                    class="arrow arrow_left"></i></button>
         </header>
-        <section class="section_dialog">
-            <p>hier soll ein bild zu sehen sein.</p>
+        <section class="section_dialog" id="sectionImage">
+            <p id="dialogImage">hier soll ein bild zu sehen sein.</p>
+            <img id="imageTest">
         </section>
-        <footer class="dialog_footer">
+        <footer id="footerDialog" class="footer_dialog">
+            <button aria-label="Voriges Bild" id="arrowLeft"><i class="arrow arrow_left"></i></button>
 
+            <button aria-label="nächstesd Bild" id="arrowRight"><i class="arrow arrow_right"></i></button>
         </footer>
     </dialog>
-    <footer>
+    <footer class="footer_main">
         <img src="#" alt="Logo">
         <br>
         <span>&copy; 2025 Matthias Tausch</span>
