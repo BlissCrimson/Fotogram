@@ -67,6 +67,7 @@ dialog {
 /* DIALOG */
 
 dialog {
+    color: white;
     background-color: rgb(12, 36, 20);
     width: 500px;
     height: 500px;
