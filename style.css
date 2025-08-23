@@ -76,6 +76,7 @@ dialog {
 .dialog_header {
     height: 64px;
     background-color: rgb(12, 36, 20);
+    display: flex;
     justify-content: space-between;
     align-items: baseline;
 }
