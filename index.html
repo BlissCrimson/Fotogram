@@ -10,7 +10,6 @@
 </head>
 
 <body>
-    <div onclick="toggleOverlay()" id="overlay" class="overlay"></div>
 
     <header class="header_main">
         <img class="header_main_img" src="./img/Fotogram_Logo.svg" alt="Fotogram Logo">
@@ -53,15 +52,18 @@
             </div>
         </div>
     </main>
-    <dialog id="imageDialog" aria-labelledby="dialogTitle" aria-describedby="" class="dialogWindow">
+
+    <dialog id="imageDialog" aria-labelledby="dialogTitle" aria-describedby="" class="dialogWindow"
+        onload="renderDialog()">
         <header class="dialog_header">
-            <h2 id="dialogtitle"></h2>
+            <h2 id="dialogTitle">hier soll Bild Title stehen</h2>
             <button aria-label="Dialog schließen" onclick="closeDialog()"><i class="arrow arrow_right"></i><i
                     class="arrow arrow_left"></i></button>
         </header>
-        <section class="section_dialog" id="sectionImage">
-            <p id="dialogImage">hier soll ein bild zu sehen sein.</p>
-            <img id="imageTest">
+        <section Image class="section_dialog" id="sectionImage">
+            <div id="dialogImage">
+                Hier soll ein Bild sein.
+            </div>
         </section>
         <footer id="footerDialog" class="footer_dialog">
             <button aria-label="Voriges Bild" id="arrowLeft"><i class="arrow arrow_left"></i></button>
@@ -69,6 +71,7 @@
             <button aria-label="nächstesd Bild" id="arrowRight"><i class="arrow arrow_right"></i></button>
         </footer>
     </dialog>
+    <div id="overlay" class="overlay d_none"></div>
     <footer class="footer_main">
         <img src="#" alt="Logo">
         <br>
