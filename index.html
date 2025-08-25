@@ -53,17 +53,24 @@
         </div>
     </main>
 
-    <dialog id="imageDialog" aria-labelledby="dialogTitle" aria-describedby="" class="dialogWindow"
-        onload="renderDialog()">
+    <dialog id="imageDialog" aria-labelledby="dialogTitle" aria-describedby="" class="dialogWindow">
         <header class="dialog_header">
-            <h2 id="dialogTitle">hier soll Bild Title stehen</h2>
+            <h2 id="dialogTitle">hier soll der Bild Title stehen</h2>
             <button aria-label="Dialog schließen" onclick="closeDialog()"><i class="arrow arrow_right"></i><i
                     class="arrow arrow_left"></i></button>
         </header>
-        <section Image class="section_dialog" id="sectionImage">
-            <div id="dialogImage">
-                Hier soll ein Bild sein.
-            </div>
+        <section class="section_dialog" id="sectionImage">
+            <template id="template">
+                <div id="showImage">
+                    <img class="dialog_image" src="renderImage()" alt="Aussicht von La Boe">
+                    <img src="./img/crimsonclouds.jpg" alt="">
+                    <img src="./img/harz.jpg" alt="">
+                    <img src="./img/limmerbeinacht.jpg" alt="">
+                    <img src="./img/sirbenjaminleeguiness.jpg" alt="">
+                    #Hier soll ein Bild sein.
+                </div>
+            </template>
+
         </section>
         <footer id="footerDialog" class="footer_dialog">
             <button aria-label="Voriges Bild" id="arrowLeft"><i class="arrow arrow_left"></i></button>
