@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body onload="initRendering()">
 
     <header class="header_main">
         <img class="header_main_img" src="./img/Fotogram_Logo.svg" alt="Fotogram Logo">
@@ -18,59 +18,17 @@
     <main>
         <h1>Your personal photo album</h1>
 
-        <div class="album">
-
-            <div aria-haspopup="dialog" aria-controls="imageDialog" onclick="openDialog()">
-                <a>
-                    <img id="img1" class="img_little" src="./img/aussichtlaboe.jpg" alt="Aussicht von LaBoe" srcset="">
-                </a>
-            </div>
-
-            <div aria-haspopup="dialog" aria-controls="imageDialog" onclick="openDialog()">
-                <a>
-                    <img class="img_little" src="./img/crimsonclouds.jpg" alt="Rotfarbene Wolken">
-                </a>
-            </div>
-
-            <div aria-haspopup="dialog" aria-controls="imageDialog" onclick="openDialog()">
-                <a>
-                    <img class="img_little" src="./img/harz.jpg" alt="Aussicht im Harz">
-                </a>
-            </div>
-
-            <div aria-haspopup="dialog" aria-controls="imageDialog" onclick="openDialog()">
-                <a>
-                    <img class="img_little" src="./img/sirbenjaminleeguiness.jpg" alt="Sir Benjamin Lee Guiness">
-
-                </a>
-            </div>
-
-            <div aria-haspopup="dialog" aria-controls="imageDialog" onclick="openDialog()">
-                <a>
-                    <img class="img_little" src="./img/limmerbeinacht.jpg" alt="Hannover von Limmer bei Nacht">
-                </a>
-            </div>
-        </div>
+        <div class="album" id="main_images"></div>
     </main>
 
     <dialog id="imageDialog" aria-labelledby="dialogTitle" aria-describedby="" class="dialogWindow">
         <header class="dialog_header">
-            <h2 id="dialogTitle">hier soll der Bild Title stehen</h2>
+            <h2 id="dialogTitle" class="dialog_title">hier soll der Bild Title stehen</h2>
             <button aria-label="Dialog schließen" onclick="closeDialog()"><i class="arrow arrow_right"></i><i
                     class="arrow arrow_left"></i></button>
         </header>
         <section class="section_dialog" id="sectionImage">
-            <template id="template">
-                <div id="showImage">
-                    <img class="dialog_image" src="renderImage()" alt="Aussicht von La Boe">
-                    <img src="./img/crimsonclouds.jpg" alt="">
-                    <img src="./img/harz.jpg" alt="">
-                    <img src="./img/limmerbeinacht.jpg" alt="">
-                    <img src="./img/sirbenjaminleeguiness.jpg" alt="">
-                    #Hier soll ein Bild sein.
-                </div>
-            </template>
-
+            <div id="dialogImage"></div>
         </section>
         <footer id="footerDialog" class="footer_dialog">
             <button aria-label="Voriges Bild" id="arrowLeft"><i class="arrow arrow_left"></i></button>
