@@ -69,7 +69,7 @@ dialog {
 }
 
 .dialog_image {
-    max-width: 450px;
+    max-width: 500px;
     max-height: calc(500px - (2 * 64px));
     display: flex;
     justify-content: center;
