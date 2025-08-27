@@ -9,7 +9,6 @@ body {
     min-height: calc(100vh - 120px);
 }
 
-
 /* OVERLAY */
 
 .overlay {
@@ -33,7 +32,6 @@ body {
 .header_main_img {
     height: 64px;
 }
-
 
 /* MAIN */
 
@@ -79,7 +77,6 @@ dialog {
     align-items: center;
 
 }
-
 
 /* DIALOG */
 
@@ -135,7 +132,6 @@ button {
     align-items: center;
 }
 
-
 /* FOOTER */
 
 .footer_main {
@@ -147,7 +143,6 @@ button {
     justify-content: center;
     align-items: center;
 }
-
 
 /* OVERLAY */
 
