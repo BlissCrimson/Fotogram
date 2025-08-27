@@ -66,16 +66,14 @@ dialog {
     object-fit: cover;
     width: 128px;
     height: 128px;
-
 }
 
 .dialog_image {
     max-width: 450px;
-    max-height: calc(450px - (2 * 64px));
+    max-height: calc(500px - (2 * 64px));
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
 /* DIALOG */
@@ -121,12 +119,19 @@ button {
 }
 
 .section-dialog {
-    height: calc(500px - 2 * 64px);
+    height: 500px;
+    width: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .footer_dialog {
     height: 64px;
+    width: 500px;
     background-color: rgb(12, 36, 20);
+    position: absolute;
+    bottom: 0;
     display: flex;
     justify-content: space-around;
     align-items: center;
