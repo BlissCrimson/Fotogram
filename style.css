@@ -37,6 +37,13 @@ body {
 
 /* MAIN */
 
+main {
+    height: calc(100vh - 96px - 96px);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
 h1 {
     text-align: center;
 }
@@ -48,6 +55,7 @@ dialog {
 }
 
 .album {
+    width: 750px;
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
