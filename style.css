@@ -53,7 +53,7 @@ dialog {
 }
 
 .album {
-    width: 750px;
+    max-width: 750px;
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
