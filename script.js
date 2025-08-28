@@ -57,8 +57,7 @@ function closeDialog() {
 
 function initRendering() {
     renderImage();
-    renderImageIds();
-    // showImage();
+    showImage();
 }
 
 // MAIN IMG RENDERING
@@ -66,17 +65,17 @@ function initRendering() {
 
 let imageRef = document.getElementById('main_images');
 
-function renderImage(indexId) {
+function renderImage() {
     imageRef.innerHTML = "";
     for (let indexImages = 0; indexImages < myImages.length; indexImages == indexImages++) {
-        imageRef.innerHTML += getImageMain(indexId);
+        imageRef.innerHTML += getImageMain(indexImages);
     }
 }
 
 
-function getImageMain(indexImages, indexId) {
+function getImageMain(indexImages) {
     return `<img    class="img_little"
-                    id="${indexId}" 
+                    id="${idImages[indexImages]}" 
                     aria-haspopup="dialog" 
                     aria-controls="imageDialog" 
                     onclick="openDialog(${indexImages})" 
@@ -84,17 +83,7 @@ function getImageMain(indexImages, indexId) {
             `
 }
 
-let tmpl = document.getElementById("idImages").content.textContent.trim();
-let imageIdRef = JSON.parse(tmpl);
 
-let imageIdRef = document.getElementById('imageID');
-
-function renderImageIds() {
-    imageIdRef.innerHTML = "";
-    for (let indexID = 0; indexID < idImages.length; indexID++) {
-        imageIdRef += getImageMain(indexID);
-    }
-}
 
 // DIALOG
 // DIALOG RENDERING
@@ -114,17 +103,13 @@ function renderImageIds() {
 
 let imageDialogRef = document.getElementById('dialogImage');
 
-function showImage() {
-    imageDialogRef.innerHTML = "";
-
-    for (let indexImages = 0; indexImages < myImages.length; indexImages++) {
-        imageDialogRef.innerHTML = getImageDialog(indexImages);
-
-    }
-    function getImageDialog(indexImages) {
-        return `<img class="dialog_image" onclick="openDialog(${indexImages})" src="${myImages[indexImages]}">`
-
-    }
+function showImage(indexImages) {
+    return `<img    class="dialog_image"
+                    id="dialogImage"
+                    aria-haspopup="dialog" 
+                    aria-controls="imageDialog" 
+                    src="${myImages[indexImages]}">
+            `
 }
 
 // DIALOG FOOTER
