@@ -40,7 +40,7 @@ function openDialog() {
     let overlayRef = document.getElementById('overlay');
     dialogRef.showModal();
     // add overlay behind dialog
-    // dialog.innerHTML = <img src="${myImages[index]}">
+    // dialog.innerHTML = `<img src="${myImages[idImages]}">`
     overlayRef.classList.remove('d_none');
     showImage();
 }
@@ -62,7 +62,6 @@ function initRendering() {
 
 // MAIN IMG RENDERING
 
-
 let imageRef = document.getElementById('main_images');
 
 function renderImage() {
@@ -71,7 +70,6 @@ function renderImage() {
         imageRef.innerHTML += getImageMain(indexImages);
     }
 }
-
 
 function getImageMain(indexImages) {
     return `<img    class="img_little"
@@ -83,32 +81,16 @@ function getImageMain(indexImages) {
             `
 }
 
-
-
-// DIALOG
-// DIALOG RENDERING
-
-
-// // DIALOG TITLE
-// let titleRef = document.getElementById('dialogTitle');
-// function renderTitle() {
-//     titleRef.innerHTML = "";
-//     for (let index = 0; index < imagesNames.length; index == index++) {
-//         titleRef.innerHTML += `${imagesNames[index]}`
-// console.log(titleRef);
-//     }
-// }
-
 // DIALOG IMAGE
 
-let imageDialogRef = document.getElementById('dialogImage');
+// let imageDialogRef = document.getElementById('dialogImage');
 
-function showImage(indexImages) {
+function showImage() {
     return `<img    class="dialog_image"
                     id="dialogImage"
                     aria-haspopup="dialog" 
                     aria-controls="imageDialog" 
-                    src="${myImages[indexImages]}">
+                    src="${myImages[idImages]}">
             `
 }
 
