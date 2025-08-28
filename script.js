@@ -20,10 +20,18 @@ const imagesNames = [
     "Sternenhimmel über Nordfriesland"
 ]
 
+const idImages = [
+    "image1",
+    "image2",
+    "image3",
+    "image4",
+    "image5",
+    "image6",
+    "image7",
+    "image8"
+]
 
 // DIALOG
-
-// DIALOG HEADER
 
 // DIALOG OPEN/CLOSE
 let dialogRef = document.getElementById("imageDialog");
@@ -34,6 +42,7 @@ function openDialog() {
     // add overlay behind dialog
     // dialog.innerHTML = <img src="${myImages[index]}">
     overlayRef.classList.remove('d_none');
+    showImage();
 }
 
 // to close dialog
@@ -44,65 +53,79 @@ function closeDialog() {
     overlayRef.classList.add('d_none');
 }
 
-
 // MAIN RENDERING
 
 function initRendering() {
-    renderTitle();
     renderImage();
+    renderImageIds();
+    // showImage();
 }
 
 // MAIN IMG RENDERING
+
+
 let imageRef = document.getElementById('main_images');
 
-function renderImage() {
+function renderImage(indexId) {
     imageRef.innerHTML = "";
-    for (let index = 0; index < myImages.length; index == index++) {
-        imageRef.innerHTML += `<img class="img_little" aria-haspopup="dialog" aria-controls="imageDialog" onclick="openDialog()" src="${myImages[index]}">`
+    for (let indexImages = 0; indexImages < myImages.length; indexImages == indexImages++) {
+        imageRef.innerHTML += getImageMain(indexId);
     }
 }
 
+
+function getImageMain(indexImages, indexId) {
+    return `<img    class="img_little"
+                    id="${indexId}" 
+                    aria-haspopup="dialog" 
+                    aria-controls="imageDialog" 
+                    onclick="openDialog(${indexImages})" 
+                    src="${myImages[indexImages]}">
+            `
+}
+
+let tmpl = document.getElementById("idImages").content.textContent.trim();
+let imageIdRef = JSON.parse(tmpl);
+
+let imageIdRef = document.getElementById('imageID');
+
+function renderImageIds() {
+    imageIdRef.innerHTML = "";
+    for (let indexID = 0; indexID < idImages.length; indexID++) {
+        imageIdRef += getImageMain(indexID);
+    }
+}
 
 // DIALOG
-
 // DIALOG RENDERING
 
-function renderDialog() {
-    renderTitle();
-    showImage();
-}
 
-// DIALOG TITLE
-
-let titleRef = document.getElementById('dialogTitle');
-
-function renderTitle() {
-    titleRef.innerHTML = "";
-    for (let index = 0; index < imagesNames.length; index == index++) {
-        titleRef.innerHTML += `${imagesNames[index]}`
-        
-    }
-
-}
-
+// // DIALOG TITLE
+// let titleRef = document.getElementById('dialogTitle');
+// function renderTitle() {
+//     titleRef.innerHTML = "";
+//     for (let index = 0; index < imagesNames.length; index == index++) {
+//         titleRef.innerHTML += `${imagesNames[index]}`
+// console.log(titleRef);
+//     }
+// }
 
 // DIALOG IMAGE
 
+let imageDialogRef = document.getElementById('dialogImage');
+
 function showImage() {
-    
-    for (let index = 0; index < myImages.length; index++) {
-        imageRef.innerHTML = `${myImages[index]}`
-        return imageRef.innerHTML = `<img class="dialog_image" onclick="openDialog(${index})" src="${myImages[index]}">`
+    imageDialogRef.innerHTML = "";
+
+    for (let indexImages = 0; indexImages < myImages.length; indexImages++) {
+        imageDialogRef.innerHTML = getImageDialog(indexImages);
+
     }
-    
-    // if (document.createElement("template").content) {
-    //     imageRef = document.getElementById('dialogImage').innerHTML;
-    // } else {
-    //     imageRef = document.getElementById('img1');
-    // }
+    function getImageDialog(indexImages) {
+        return `<img class="dialog_image" onclick="openDialog(${indexImages})" src="${myImages[indexImages]}">`
 
+    }
 }
-
 
 // DIALOG FOOTER
 
