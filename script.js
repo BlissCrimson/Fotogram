@@ -36,13 +36,22 @@ const idImages = [
 // DIALOG OPEN/CLOSE
 let dialogRef = document.getElementById("imageDialog");
 // to open dialog
-function openDialog() {
+function openDialog(indexDialog) {
     let overlayRef = document.getElementById('overlay');
     dialogRef.showModal();
     // add overlay behind dialog
     // dialog.innerHTML = `<img src="${myImages[idImages]}">`
-    overlayRef.classList.remove('d_none');
-    showImage();
+    // overlayRef.classList.remove('d_none');
+    if (indexDialog < 0) {
+        indexDialog = myImages.length - 1;
+
+    }
+
+    if (indexDialog > myImages.length - 1) {
+        indexDialog = 0;
+
+    }
+    showImage(indexDialog);
 }
 
 // to close dialog
@@ -83,9 +92,8 @@ function getImageMain(indexImages) {
 
 // DIALOG IMAGE
 
-// let imageDialogRef = document.getElementById('dialogImage');
+function showImage(indexDialog) {
 
-function showImage() {
     return `<img    class="dialog_image"
                     id="dialogImage"
                     aria-haspopup="dialog" 
@@ -94,8 +102,13 @@ function showImage() {
             `
 }
 
+// EventListener
+// DIALOG
+let img = document.createElement("img");
+// img.src = myImages[idImages];
+// img.alt = imagesNames[idImages];
+img.addEventListener("click", () => openDialog());
 // DIALOG FOOTER
-
 document.getElementById("arrowLeft").addEventListener("click", back);
 document.getElementById("arrowRight").addEventListener("click", foward);
 
