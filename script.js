@@ -31,39 +31,14 @@ const idImages = [
     "image8"
 ]
 
-// const indexDialog = [
-//     "openDialog(0)",
-//     "openDialog(1)",
-//     "openDialog(2)",
-//     "openDialog(3)",
-//     "openDialog(4)",
-//     "openDialog(5)",
-//     "openDialog(6)",
-//     "openDialog(7)"
-// ]
-
 // DIALOG
-
 // DIALOG OPEN/CLOSE
 let dialogRef = document.getElementById("imageDialog");
 // to open dialog
 function openDialog(indexDialog) {
-    let overlayRef = document.getElementById('overlay');
     dialogRef.showModal();
-    // add overlay behind dialog
-    // dialog.innerHTML = `<img src="${myImages[idImages]}">`
-    // overlayRef.classList.remove('d_none');
-    // if (indexDialog < 0) {
-    //     indexDialog = myImages.length - 1;
-
-    // }
-
-    // if (indexDialog > myImages.length - 1) {
-    //     indexDialog = 0;
-
-    // }
     showImage(indexDialog);
-        if (indexDialog < 0) {
+    if (indexDialog < 0) {
         indexDialog = myImages.length - 1;
     }
     if (indexDialog > myImages.length - 1) {
@@ -79,7 +54,6 @@ function openDialog(indexDialog) {
             `;
     return dialogRef.showModal(indexDialog);
 }
-
 // to close dialog
 function closeDialog() {
     let overlayRef = document.getElementById('overlay');
@@ -89,15 +63,10 @@ function closeDialog() {
 }
 
 // MAIN RENDERING
-
 function initRendering() {
     renderImage();
-    // switchImage(indexDialog);
-    // showImage();
 }
-
 // MAIN IMG RENDERING
-
 let imageRef = document.getElementById('main_images');
 
 function renderImage() {
@@ -106,7 +75,6 @@ function renderImage() {
         imageRef.innerHTML += getImageMain(indexImages);
     }
 }
-
 function getImageMain(indexImages) {
     return `<img    class="img_little"
                     id="${idImages[indexImages]}" 
@@ -122,7 +90,6 @@ function showImage(indexDialog) {
     imgageDialogRef.innerHTML = "";
     imgageDialogRef.innerHTML += dialogImage(indexDialog);
 }
-
 function dialogImage(indexDialog) {
     return `<img    class="dialog_image"
                     aria-haspopup="dialog" 
@@ -131,7 +98,6 @@ function dialogImage(indexDialog) {
                     alt="${imagesNames[indexDialog]}">
                 `
 }
-
 function switchImage(indexDialog) {
     if (indexDialog < 0) {
         indexDialog = myImages.length - 1;
@@ -148,36 +114,4 @@ function switchImage(indexDialog) {
             </button>
             `;
     return dialogRef.showModal(indexDialog);
-    // prevDialog.indexDialog.showModal();
-    // fillDialog(indexDialog);
 }
-// EventListener
-// DIALOG
-// let img = document.createElement("img");
-// // img.src = myImages[idImages];
-// // img.alt = imagesNames[idImages];
-// img.addEventListener("click", () => openDialog());
-// DIALOG FOOTER
-// document.getElementById("arrowLeft").addEventListener("click", back);
-// document.getElementById("arrowRight").addEventListener("click", foward);
-
-// function back(indexDialog) {
-//     if (indexDialog < 0) {
-//         indexDialog = myImages.length - 1;
-//         indexDialog - 1;
-//     }
-
-
-//     console.log("du drückst zurück");
-
-// }
-
-// function foward(indexDialog) {
-//     if (indexDialog > myImages.length - 1) {
-//         indexDialog = 0;
-
-//     }
-
-//     console.log("du drückst weiter");
-// }
-
