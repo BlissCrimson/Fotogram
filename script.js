@@ -31,6 +31,17 @@ const idImages = [
     "image8"
 ]
 
+// const indexDialog = [
+//     "openDialog(0)",
+//     "openDialog(1)",
+//     "openDialog(2)",
+//     "openDialog(3)",
+//     "openDialog(4)",
+//     "openDialog(5)",
+//     "openDialog(6)",
+//     "openDialog(7)"
+// ]
+
 // DIALOG
 
 // DIALOG OPEN/CLOSE
@@ -42,15 +53,15 @@ function openDialog(indexDialog) {
     // add overlay behind dialog
     // dialog.innerHTML = `<img src="${myImages[idImages]}">`
     // overlayRef.classList.remove('d_none');
-    if (indexDialog < 0) {
-        indexDialog = myImages.length - 1;
+    // if (indexDialog < 0) {
+    //     indexDialog = myImages.length - 1;
 
-    }
+    // }
 
-    if (indexDialog > myImages.length - 1) {
-        indexDialog = 0;
+    // if (indexDialog > myImages.length - 1) {
+    //     indexDialog = 0;
 
-    }
+    // }
     showImage(indexDialog);
 }
 
@@ -66,7 +77,7 @@ function closeDialog() {
 
 function initRendering() {
     renderImage();
-    showImage();
+    // showImage();
 }
 
 // MAIN IMG RENDERING
@@ -89,33 +100,48 @@ function getImageMain(indexImages) {
                     src="${myImages[indexImages]}">
             `
 }
-
 // DIALOG IMAGE
-
+let imgageDialogRef = document.getElementById('dialogImage');
 function showImage(indexDialog) {
+    imgageDialogRef.innerHTML = "";
+    imgageDialogRef.innerHTML += dialogImage(indexDialog);
+}
 
+function dialogImage(indexDialog) {
     return `<img    class="dialog_image"
-                    id="dialogImage"
                     aria-haspopup="dialog" 
                     aria-controls="imageDialog" 
-                    src="${myImages[idImages]}">
-            `
+                    src="${myImages[indexDialog]}"
+                    alt="${imagesNames[indexDialog]}">
+                `
 }
 
 // EventListener
 // DIALOG
-let img = document.createElement("img");
-// img.src = myImages[idImages];
-// img.alt = imagesNames[idImages];
-img.addEventListener("click", () => openDialog());
+// let img = document.createElement("img");
+// // img.src = myImages[idImages];
+// // img.alt = imagesNames[idImages];
+// img.addEventListener("click", () => openDialog());
 // DIALOG FOOTER
 document.getElementById("arrowLeft").addEventListener("click", back);
 document.getElementById("arrowRight").addEventListener("click", foward);
 
-function back() {
+function back(indexDialog) {
+    if (indexDialog < 0) {
+        indexDialog = myImages.length - 1;
+        indexDialog - 1;
+    }
+
+
     console.log("du drückst zurück");
+
 }
 
-function foward() {
+function foward(indexDialog) {
+    if (indexDialog > myImages.length - 1) {
+        indexDialog = 0;
+
+    }
+
     console.log("du drückst weiter");
 }
