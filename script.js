@@ -31,6 +31,16 @@ const idImages = [
     "image8"
 ]
 
+const imageNumber = [
+    "1/8",
+    "2/8",
+    "3/8",
+    "4/8",
+    "5/8",
+    "6/8",
+    "7/8",
+    "8/8"
+]
 // DIALOG
 // DIALOG OPEN/CLOSE
 let dialogRef = document.getElementById("imageDialog");
@@ -47,6 +57,9 @@ function openDialog(indexDialog) {
             <button onclick="openDialog(${indexDialog - 1})" aria-label="Voriges Bild" id="arrowLeft">
                 <i class="arrow arrow_left"></i>
             </button>
+            <div id="imageNumber class="image_number>
+                ${imageNumber[indexDialog]}
+            </div>
             <button onclick="openDialog(${indexDialog + 1})" aria-label="nächstesd Bild" id="arrowRight">
                 <i class="arrow arrow_right"></i>
             </button>
@@ -56,15 +69,12 @@ function openDialog(indexDialog) {
 }
 // to close dialog
 function closeDialog() {
-    let overlayRef = document.getElementById('overlay');
     dialogRef.close();
-    // remove overlay by close dialog
-    overlayRef.classList.add('d_none');
 }
-
 // MAIN RENDERING
 function initRendering() {
     renderImage();
+    // renderPage();
 }
 // MAIN IMG RENDERING
 let imageRef = document.getElementById('main_images');
