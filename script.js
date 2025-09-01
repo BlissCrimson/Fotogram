@@ -63,6 +63,21 @@ function openDialog(indexDialog) {
 
     // }
     showImage(indexDialog);
+        if (indexDialog < 0) {
+        indexDialog = myImages.length - 1;
+    }
+    if (indexDialog > myImages.length - 1) {
+        indexDialog = 0;
+    }
+    document.getElementById('footerDialog').innerHTML = `
+            <button onclick="openDialog(${indexDialog - 1})" aria-label="Voriges Bild" id="arrowLeft">
+                <i class="arrow arrow_left"></i>
+            </button>
+            <button onclick="openDialog(${indexDialog + 1})" aria-label="nächstesd Bild" id="arrowRight">
+                <i class="arrow arrow_right"></i>
+            </button>
+            `;
+    return dialogRef.showModal(indexDialog);
 }
 
 // to close dialog
@@ -77,6 +92,7 @@ function closeDialog() {
 
 function initRendering() {
     renderImage();
+    // switchImage(indexDialog);
     // showImage();
 }
 
@@ -116,6 +132,25 @@ function dialogImage(indexDialog) {
                 `
 }
 
+function switchImage(indexDialog) {
+    if (indexDialog < 0) {
+        indexDialog = myImages.length - 1;
+    }
+    if (indexDialog > myImages.length - 1) {
+        indexDialog = 0;
+    }
+    document.getElementById('footerDialog').innerHTML = `
+            <button onclick="switchImage(${indexDialog - 1})" aria-label="Voriges Bild" id="arrowLeft">
+                <i class="arrow arrow_left"></i>
+            </button>
+            <button onclick="switchImage(${indexDialog + 1})" aria-label="nächstesd Bild" id="arrowRight">
+                <i class="arrow arrow_right"></i>
+            </button>
+            `;
+    return dialogRef.showModal(indexDialog);
+    // prevDialog.indexDialog.showModal();
+    // fillDialog(indexDialog);
+}
 // EventListener
 // DIALOG
 // let img = document.createElement("img");
@@ -123,25 +158,26 @@ function dialogImage(indexDialog) {
 // // img.alt = imagesNames[idImages];
 // img.addEventListener("click", () => openDialog());
 // DIALOG FOOTER
-document.getElementById("arrowLeft").addEventListener("click", back);
-document.getElementById("arrowRight").addEventListener("click", foward);
+// document.getElementById("arrowLeft").addEventListener("click", back);
+// document.getElementById("arrowRight").addEventListener("click", foward);
 
-function back(indexDialog) {
-    if (indexDialog < 0) {
-        indexDialog = myImages.length - 1;
-        indexDialog - 1;
-    }
+// function back(indexDialog) {
+//     if (indexDialog < 0) {
+//         indexDialog = myImages.length - 1;
+//         indexDialog - 1;
+//     }
 
 
-    console.log("du drückst zurück");
+//     console.log("du drückst zurück");
 
-}
+// }
 
-function foward(indexDialog) {
-    if (indexDialog > myImages.length - 1) {
-        indexDialog = 0;
+// function foward(indexDialog) {
+//     if (indexDialog > myImages.length - 1) {
+//         indexDialog = 0;
 
-    }
+//     }
 
-    console.log("du drückst weiter");
-}
+//     console.log("du drückst weiter");
+// }
+
