@@ -37,7 +37,6 @@ let dialogRef = document.getElementById("imageDialog");
 // to open dialog
 function openDialog(indexDialog) {
     dialogRef.showModal();
-    showImage(indexDialog);
     if (indexDialog < 0) {
         indexDialog = myImages.length - 1;
     }
@@ -52,6 +51,7 @@ function openDialog(indexDialog) {
                 <i class="arrow arrow_right"></i>
             </button>
             `;
+    showImage(indexDialog);
     return dialogRef.showModal(indexDialog);
 }
 // to close dialog
@@ -75,6 +75,7 @@ function renderImage() {
         imageRef.innerHTML += getImageMain(indexImages);
     }
 }
+
 function getImageMain(indexImages) {
     return `<img    class="img_little"
                     id="${idImages[indexImages]}" 
@@ -84,6 +85,7 @@ function getImageMain(indexImages) {
                     src="${myImages[indexImages]}">
             `
 }
+
 // DIALOG IMAGE
 let imgageDialogRef = document.getElementById('dialogImage');
 function showImage(indexDialog) {
@@ -97,21 +99,4 @@ function dialogImage(indexDialog) {
                     src="${myImages[indexDialog]}"
                     alt="${imagesNames[indexDialog]}">
                 `
-}
-function switchImage(indexDialog) {
-    if (indexDialog < 0) {
-        indexDialog = myImages.length - 1;
-    }
-    if (indexDialog > myImages.length - 1) {
-        indexDialog = 0;
-    }
-    document.getElementById('footerDialog').innerHTML = `
-            <button onclick="switchImage(${indexDialog - 1})" aria-label="Voriges Bild" id="arrowLeft">
-                <i class="arrow arrow_left"></i>
-            </button>
-            <button onclick="switchImage(${indexDialog + 1})" aria-label="nächstesd Bild" id="arrowRight">
-                <i class="arrow arrow_right"></i>
-            </button>
-            `;
-    return dialogRef.showModal(indexDialog);
 }
