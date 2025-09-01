@@ -1,3 +1,11 @@
+@font-face {
+    font-display: swap;
+    font-family: "Oleo Script", system-ui;
+    font-weight: 700;
+    font-style: normal;
+    src: url('./font/OleoScript-Bold.ttf') format('ttf');
+}
+
 html {
     scroll-behavior: smooth;
 }
@@ -5,19 +13,10 @@ html {
 body {
     margin: 0;
     color: #FFFFFF;
-    background-color: rgb(5, 23, 30);
+    background-color: #172c47;
+    /* background-color: #05171e; */
     min-height: calc(100vh - 120px);
-}
-
-/* OVERLAY */
-
-.overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 100vh;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.432);
+    font-family: "Oleo Script", system-ui;
 }
 
 /* HEADER */
@@ -46,12 +45,6 @@ h1 {
     text-align: center;
 }
 
-dialog {
-    color: #dfcea1;
-    background-color: #334B53;
-    border-radius: 20px;
-}
-
 .album {
     max-width: 750px;
     display: flex;
@@ -60,38 +53,53 @@ dialog {
     gap: 28px;
 }
 
-/* IMAGES */
+/* MAIN */
 
 .img_little {
     object-fit: cover;
     width: 128px;
     height: 128px;
+    border: 4px solid white;
     border-radius: 24px;
 }
 
-.dialog_image {
-    max-width: 500px;
-    max-height: calc(500px - (2 * 64px));
-    display: flex;
-    justify-content: center;
-    align-items: center;
+.img_little:hover {
+    border: 4px solid #08aefc;
+    -webkit-box-shadow: 0px 0px 15px 4px rgba(8, 174, 252, 0.83);
+    box-shadow: 0px 0px 15px 4px rgba(8, 174, 252, 0.83);
+    cursor: pointer;
 }
 
 /* DIALOG */
 
 dialog {
+    color: #dfcea1;
+    background-color: #254670;
+    border-radius: 20px;
     color: white;
-    background-color: rgb(12, 36, 20);
     width: 500px;
     height: 500px;
 }
 
 .dialog_header {
     height: 64px;
-    background-color: rgb(12, 36, 20);
+    background-color: #254670;
     display: flex;
     justify-content: space-between;
     align-items: baseline;
+}
+
+.dialog_image_div {
+    max-width: 500px;
+    height: calc(500px - (64px + 64px));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.dialog_image {
+    max-width: 500px;
+    max-height: calc(500px - (64px + 64px));
 }
 
 button {
@@ -120,8 +128,8 @@ button {
 }
 
 .section-dialog {
-    height: 500px;
-    width: 400px;
+    max-width: 500px;
+    max-height: calc(500px - (64px + 64px));
     display: flex;
     justify-content: center;
     align-items: center;
@@ -130,7 +138,7 @@ button {
 .footer_dialog {
     height: 64px;
     width: 500px;
-    background-color: rgb(12, 36, 20);
+    background-color: #254670;
     position: absolute;
     bottom: 0;
     display: flex;
@@ -148,10 +156,4 @@ button {
     flex-direction: column;
     justify-content: center;
     align-items: center;
-}
-
-/* OVERLAY */
-
-.d_none {
-    display: none;
 }
