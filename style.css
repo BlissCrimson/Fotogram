@@ -19,7 +19,9 @@ body {
     font-family: "Oleo Script", system-ui;
 }
 
-/* HEADER */
+h2 {}
+
+/* BODY HEADER */
 .header_main {
     background-color: #082029;
     height: 96px;
@@ -45,14 +47,13 @@ h1 {
 }
 
 .album {
-    max-width: 750px;
+    max-width: 768px;
     display: flex;
     justify-content: space-evenly;
     flex-wrap: wrap;
-    gap: 28px;
+    gap: 48px;
 }
 
-/* MAIN */
 .img_little {
     object-fit: cover;
     width: 128px;
@@ -74,8 +75,8 @@ dialog {
     background-color: #254670;
     border-radius: 20px;
     color: white;
-    width: 500px;
-    height: 500px;
+    width: 768px;
+    height: 768px;
 }
 
 .dialog_header {
@@ -86,17 +87,24 @@ dialog {
     align-items: baseline;
 }
 
+.section_dialog {
+    width: 768px;
+    height: calc(768px - (64px + 64px));
+    display: flex;
+    justify-content: center;
+}
+
 .dialog_image_div {
-    max-width: 500px;
-    height: calc(500px - (64px + 64px));
+    width: fit-content;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .dialog_image {
-    max-width: 500px;
-    max-height: calc(500px - (64px + 64px));
+    max-width: 768px;
+    max-height: calc(768px - (64px + 64px));
 }
 
 button {
@@ -113,35 +121,30 @@ button {
     border-width: 0 3px 3px 0;
     padding: 3px;
 }
+
 .arrow_left {
     transform: rotate(135deg);
     -webkit-transform: rotate(135deg);
 }
+
 .arrow_right {
     transform: rotate(-45deg);
     -webkit-transform: rotate(-45deg);
 }
 
-.section-dialog {
-    max-width: 500px;
-    max-height: calc(500px - (64px + 64px));
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .footer_dialog {
     height: 64px;
-    width: 500px;
+    width: 768px;
     background-color: #254670;
     position: absolute;
     bottom: 0;
     display: flex;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
+    gap: 64px;
 }
 
-/* FOOTER */
+/* BODY FOOTER */
 .footer_main {
     color: #334B53;
     background-color: #082029;
