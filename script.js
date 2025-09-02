@@ -1,4 +1,4 @@
-const myImages = [
+const myMainImages = [
     "./img/aussichtlaboe.jpg",
     "./img/crimsonclouds.jpg",
     "./img/harz.jpg",
@@ -7,6 +7,17 @@ const myImages = [
     "./img/polarlichterinnorddeutschland.jpg",
     "./img/sirbenjaminleeguiness.jpg",
     "./img/sternenhimmelübernordfriesland.jpg",
+]
+
+const myDialogImages = [
+    "./img/imgdialog/aussichtlaboe.jpg",
+    "./img/imgdialog/crimsonclouds.jpg",
+    "./img/imgdialog/harz.jpg",
+    "./img/imgdialog/husumerhafen.jpg",
+    "./img/imgdialog/limmerbeinacht.jpg",
+    "./img/imgdialog/polarlichterinnorddeutschland.jpg",
+    "./img/imgdialog/sirbenjaminleeguiness.jpg",
+    "./img/imgdialog/sternenhimmelübernordfriesland.jpg",
 ]
 
 const imagesNames = [
@@ -48,9 +59,9 @@ let dialogRef = document.getElementById("imageDialog");
 function openDialog(indexDialog) {
     dialogRef.showModal();
     if (indexDialog < 0) {
-        indexDialog = myImages.length - 1;
+        indexDialog = myDialogImages.length - 1;
     }
-    if (indexDialog > myImages.length - 1) {
+    if (indexDialog > myDialogImages.length - 1) {
         indexDialog = 0;
     }
     document.getElementById('footerDialog').innerHTML = `
@@ -73,15 +84,15 @@ function closeDialog() {
 }
 // MAIN RENDERING
 function initRendering() {
-    renderImage();
-    // renderPage();
+    renderMainImage();
+    renderDialogImage();
 }
 // MAIN IMG RENDERING
 let imageRef = document.getElementById('main_images');
 
-function renderImage() {
+function renderMainImage() {
     imageRef.innerHTML = "";
-    for (let indexImages = 0; indexImages < myImages.length; indexImages == indexImages++) {
+    for (let indexImages = 0; indexImages < myMainImages.length; indexImages == indexImages++) {
         imageRef.innerHTML += getImageMain(indexImages);
     }
 }
@@ -92,12 +103,20 @@ function getImageMain(indexImages) {
                     aria-haspopup="dialog" 
                     aria-controls="imageDialog" 
                     onclick="openDialog(${indexImages})" 
-                    src="${myImages[indexImages]}">
+                    src="${myMainImages[indexImages]}">
             `
 }
 
 // DIALOG IMAGE
 let imgageDialogRef = document.getElementById('dialogImage');
+
+function renderDialogImage() {
+    imgageDialogRef.innerHTML = "";
+    for (let indexImages = 0; indexImages < myDialogImages.length; indexImages == indexImages++) {
+        imgageDialogRef.innerHTML += getImageMain(indexImages);
+    }
+}
+
 function showImage(indexDialog) {
     imgageDialogRef.innerHTML = "";
     imgageDialogRef.innerHTML += dialogImage(indexDialog);
@@ -106,7 +125,7 @@ function dialogImage(indexDialog) {
     return `<img    class="dialog_image"
                     aria-haspopup="dialog" 
                     aria-controls="imageDialog" 
-                    src="${myImages[indexDialog]}"
+                    src="${myDialogImages[indexDialog]}"
                     alt="${imagesNames[indexDialog]}">
                 `
 }
