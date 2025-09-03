@@ -1,4 +1,4 @@
-const myMainImages = [
+let myMainImages = [
     "./img/aussichtlaboe.jpg",
     "./img/crimsonclouds.jpg",
     "./img/harz.jpg",
@@ -9,7 +9,7 @@ const myMainImages = [
     "./img/sternenhimmelübernordfriesland.jpg",
 ]
 
-const myDialogImages = [
+let myDialogImages = [
     "./img/imgdialog/aussichtlaboe.jpg",
     "./img/imgdialog/crimsonclouds.jpg",
     "./img/imgdialog/harz.jpg",
@@ -20,7 +20,7 @@ const myDialogImages = [
     "./img/imgdialog/sternenhimmelübernordfriesland.jpg",
 ]
 
-const imagesNames = [
+let imagesNames = [
     "Aussicht von La Boe",
     "Wolken bei Sonnenuntergang",
     "Aussicht im Harz",
@@ -31,7 +31,7 @@ const imagesNames = [
     "Sternenhimmel über Nordfriesland"
 ]
 
-const idImages = [
+let idImages = [
     "image1",
     "image2",
     "image3",
@@ -42,15 +42,15 @@ const idImages = [
     "image8"
 ]
 
-const imageNumber = [
-    "1/8",
-    "2/8",
-    "3/8",
-    "4/8",
-    "5/8",
-    "6/8",
-    "7/8",
-    "8/8"
+let imageNumber = [
+    "1",
+    "2",
+    "3",
+    "4",
+    "5",
+    "6",
+    "7",
+    "8"
 ]
 // DIALOG
 // DIALOG OPEN/CLOSE
@@ -69,27 +69,28 @@ function openDialog(indexDialog) {
                 <i class="arrow arrow_left"></i>
             </button>
             <div id="imageNumber class="image_number>
-                ${imageNumber[indexDialog]}
+                ${imageNumber[indexDialog]}/${imageNumber.length}
             </div>
             <button onclick="openDialog(${indexDialog + 1})" aria-label="nächstesd Bild" id="arrowRight">
                 <i class="arrow arrow_right"></i>
             </button>
             `;
     showImage(indexDialog);
+    showTitle(indexDialog);
+    dialogTitle(indexDialog);
     return dialogRef.showModal(indexDialog);
 }
 // to close dialog
 function closeDialog() {
     dialogRef.close();
 }
-// MAIN RENDERING
+// BODY RENDERING
 function initRendering() {
     renderMainImage();
     renderDialogImage();
 }
 // MAIN IMG RENDERING
 let imageRef = document.getElementById('main_images');
-
 function renderMainImage() {
     imageRef.innerHTML = "";
     for (let indexImages = 0; indexImages < myMainImages.length; indexImages == indexImages++) {
@@ -100,13 +101,22 @@ function renderMainImage() {
 function getImageMain(indexImages) {
     return `<img    class="img_little"
                     id="${idImages[indexImages]}" 
-                    aria-haspopup="dialog" 
-                    aria-controls="imageDialog" 
+                    aria-haspopup="dialog" aria-controls="openDialog" aria-label="Dialog Öffnen" 
                     onclick="openDialog(${indexImages})" 
-                    src="${myMainImages[indexImages]}">
+                    src="${myMainImages[indexImages]}"
+                    alt="${imagesNames[indexImages]}">
             `
 }
+// DIALOG TITLE
+let titleDialogRef = document.getElementById('dialogTitle');
 
+function showTitle(indexDialog) {
+    titleDialogRef.innerHTML = "";
+    titleDialogRef.innerHTML += dialogTitle(indexDialog)
+}
+function dialogTitle(indexDialog) {
+    return `${imagesNames[indexDialog]}`
+}
 // DIALOG IMAGE
 let imgageDialogRef = document.getElementById('dialogImage');
 
@@ -115,6 +125,7 @@ function renderDialogImage() {
     for (let indexImages = 0; indexImages < myDialogImages.length; indexImages == indexImages++) {
         imgageDialogRef.innerHTML += getImageMain(indexImages);
     }
+
 }
 
 function showImage(indexDialog) {
@@ -123,8 +134,7 @@ function showImage(indexDialog) {
 }
 function dialogImage(indexDialog) {
     return `<img    class="dialog_image"
-                    aria-haspopup="dialog" 
-                    aria-controls="imageDialog" 
+                    aria-desribedby="${imagesNames[indexDialog]}"
                     src="${myDialogImages[indexDialog]}"
                     alt="${imagesNames[indexDialog]}">
                 `
