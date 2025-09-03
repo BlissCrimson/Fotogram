@@ -11,7 +11,7 @@
 
 <body onload="initRendering()">
 
-    <header class="header_main">
+    <header class="header_main" role="header from body">
         <img class="header_main_img" src="./img/icons/Fotogram_Logo.svg" alt="Fotogram Logo">
     </header>
 
@@ -20,9 +20,9 @@
         <div class="album" id="main_images" aria-></div>
     </main>
     <!-- Dialog for Big Size Image Loading -->
-    <dialog id="imageDialog" aria-labelledby="dialogTitle" aria-describedby="" class="dialogWindow">
+    <dialog id="imageDialog" aria-labelledby="dialogTitle" aria-describedby="" role="header from dialog" class="dialogWindow">
         <header class="dialog_header">
-            <h2 id="dialogTitle" class="dialog_title"></h2>
+            <h2 id="dialogTitle" class="dialog_title" aria-label="Image Title"></h2>
             <button aria-label="Dialog schließen" onclick="closeDialog()">
                 <i class="arrow arrow_right"></i><i class="arrow arrow_left"></i>
             </button>
@@ -30,11 +30,11 @@
         <section class="section_dialog" id="sectionImage">
             <div id="dialogImage" class="dialog_image_div"></div>
         </section>
-        <footer id="footerDialog" class="footer_dialog">
+        <footer id="footerDialog" class="footer_dialog" role="footer from dialog">
         </footer>
     </dialog>
 
-    <footer class="footer_main">
+    <footer class="footer_main" role="footer from body">
         <span>&copy; 2025 Matthias Tausch</span>
     </footer>
 </body>
