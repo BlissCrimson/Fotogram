@@ -102,7 +102,9 @@ function getImageMain(indexImages) {
     return `<img    class="img_little"
                     id="${idImages[indexImages]}" 
                     aria-haspopup="dialog" aria-controls="openDialog" aria-label="Dialog Öffnen" 
+                    tabindex="0"
                     onclick="openDialog(${indexImages})" 
+                    onkeydown="openDialog(${indexImages})" 
                     src="${myMainImages[indexImages]}"
                     alt="${imagesNames[indexImages]}">
             `
