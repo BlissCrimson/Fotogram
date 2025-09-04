@@ -18,6 +18,16 @@ body {
     min-height: calc(100vh - 120px);
 }
 
+h1 {
+    text-align: center;
+    text-wrap: balance;
+}
+
+h2 {
+    text-align: center;
+    text-wrap: balance;
+}
+
 /* BODY HEADER */
 .header_main {
     background-color: #082029;
@@ -37,10 +47,6 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
-}
-
-h1 {
-    text-align: center;
 }
 
 .album {
@@ -87,22 +93,20 @@ dialog {
 }
 
 .section_dialog {
-    width: 768px;
+    width: fit-content;
     height: calc(768px - (64px + 64px));
     display: flex;
     justify-content: center;
 }
 
 .dialog_image_div {
-    width: fit-content;
-    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
 .dialog_image {
-    max-width: 768px;
+    max-width: 92vh;
     max-height: calc(768px - (64px + 64px));
 }
 
@@ -134,9 +138,7 @@ button {
 .footer_dialog {
     color: whitesmoke;
     background-color: #254670;
-    width: 768px;
     height: 64px;
-    position: absolute;
     bottom: 0;
     display: flex;
     justify-content: center;
@@ -146,6 +148,7 @@ button {
 
 /* BODY FOOTER */
 .footer_main {
+    width: 100%;
     color: #798DA0;
     background-color: #082029;
     height: 96px;
@@ -155,15 +158,71 @@ button {
     align-items: center;
 }
 
-@media (max-width: 765px) {
-    .album{
-        padding-left: 24px;
-        padding-right: 24px;
+@media (max-width: 824px) {
+    dialog {
+        max-width: 80vh;
+    }
+
+    .dialog_image {
+        width: 80vh;
     }
 }
 
-@media (max-width: 430px) {
-    h1 {
-        text-align: center;
+@media (max-width: 715px) {
+    dialog {
+        max-width: 70vh;
+    }
+
+    .dialog_image {
+        width: 70vh;
+    }
+}
+
+@media (max-width: 630px) {
+    dialog {
+        max-width: 60vh;
+    }
+.img_little {
+    width: 68px;
+    height: 68px;
+}
+    .dialog_image {
+        width: 60vh;
+    }
+}
+
+@media (max-width: 540px) {
+    dialog {
+        width: 50vh;
+    }
+
+    .dialog_image {
+        width: 50vh;
+    }
+}
+
+@media (max-width: 475px) {
+    dialog {
+        width: 40vh;
+    }
+
+    .dialog_image {
+        width: 40vh;
+    }
+}
+
+@media (max-width: 400px) {
+    dialog {
+        width: 30vh;
+    }
+
+    .dialog_image {
+        width: 30vh;
+    }
+}
+
+@media (max-width: 375px) {
+    .header_main_img {
+        height: 48px;
     }
 }
