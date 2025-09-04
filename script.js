@@ -61,7 +61,7 @@ let footerDialogRef = document.getElementById('footerDialog');
 // DIALOG
 // DIALOG OPEN/CLOSE
 // to open dialog
-function openDialog(indexDialog) {
+function openDialog(indexDialog, event) {
     dialogRef.showModal();
     if (indexDialog < 0) {
         indexDialog = myDialogImages.length - 1;
@@ -73,10 +73,15 @@ function openDialog(indexDialog) {
     showImage(indexDialog);
     showTitle(indexDialog);
     dialogTitle(indexDialog);
+    event.stopPropagation();
     return dialogRef.showModal(indexDialog);
 }
 // to close dialog
 function closeDialog() {
+    dialogRef.close();
+}
+
+function dialogClose() {
     dialogRef.close();
 }
 // BODY RENDERING
@@ -97,7 +102,7 @@ function getImageMain(indexImages) {
                     id="${idImages[indexImages]}" 
                     aria-haspopup="dialog" aria-controls="openDialog" aria-label="Dialog Öffnen" 
                     tabindex="0"
-                    onclick="openDialog(${indexImages})" 
+                    onclick="openDialog(${indexImages}, event)" 
                     onkeydown="openDialog(${indexImages})" 
                     src="${myMainImages[indexImages]}"
                     alt="${imagesNames[indexImages]}">
