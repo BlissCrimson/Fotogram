@@ -57,10 +57,9 @@ let dialogRef = document.getElementById("imageDialog");
 let imageRef = document.getElementById('main_images');
 let titleDialogRef = document.getElementById('dialogTitle');
 let imgageDialogRef = document.getElementById('dialogImage');
-
+let footerDialogRef = document.getElementById('footerDialog');
 // DIALOG
 // DIALOG OPEN/CLOSE
-
 // to open dialog
 function openDialog(indexDialog) {
     dialogRef.showModal();
@@ -70,17 +69,7 @@ function openDialog(indexDialog) {
     if (indexDialog > myDialogImages.length - 1) {
         indexDialog = 0;
     }
-    document.getElementById('footerDialog').innerHTML = `
-            <button onclick="openDialog(${indexDialog - 1})" aria-label="gehe zu vorigem Bild" id="arrowLeft">
-                <i class="arrow arrow_left"></i>
-            </button>
-            <div id="imageNumber class="image_number aria-label="image number from all images">
-                ${imageNumber[indexDialog]}/${imageNumber.length}
-            </div>
-            <button onclick="openDialog(${indexDialog + 1})" aria-label="ghehe zum nächstes Bild" id="arrowRight">
-                <i class="arrow arrow_right"></i>
-            </button>
-            `;
+    footerDialogRef.innerHTML = dialogFooter(indexDialog);
     showImage(indexDialog);
     showTitle(indexDialog);
     dialogTitle(indexDialog);
@@ -96,7 +85,6 @@ function initRendering() {
     renderDialogImage();
 }
 // MAIN IMG RENDERING
-
 function renderMainImage() {
     imageRef.innerHTML = "";
     for (let indexImages = 0; indexImages < myMainImages.length; indexImages == indexImages++) {
@@ -116,7 +104,6 @@ function getImageMain(indexImages) {
             `
 }
 // DIALOG TITLE
-
 function showTitle(indexDialog) {
     titleDialogRef.innerHTML = "";
     titleDialogRef.innerHTML += dialogTitle(indexDialog)
@@ -126,7 +113,6 @@ function dialogTitle(indexDialog) {
     return `${imagesNames[indexDialog]}`
 }
 // DIALOG IMAGE
-
 function renderDialogImage() {
     imgageDialogRef.innerHTML = "";
     for (let indexImages = 0; indexImages < myDialogImages.length; indexImages == indexImages++) {
@@ -146,4 +132,19 @@ function dialogImage(indexDialog) {
                     src="${myDialogImages[indexDialog]}"
                     alt="${imagesNames[indexDialog]}">
                 `
+}
+// DIALOG FOOTER
+function dialogFooter(indexDialog) {
+    footerDialogRef.innerHTML = "";
+    return `
+            <button onclick="openDialog(${indexDialog - 1})" aria-label="gehe zu vorigem Bild" id="arrowLeft">
+                <i class="arrow arrow_left"></i>
+            </button>
+            <div id="imageNumber class="image_number aria-label="image number from all images">
+                ${imageNumber[indexDialog]}/${imageNumber.length}
+            </div>
+            <button onclick="openDialog(${indexDialog + 1})" aria-label="ghehe zum nächstes Bild" id="arrowRight">
+                <i class="arrow arrow_right"></i>
+            </button>
+            `;
 }
