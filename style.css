@@ -182,10 +182,12 @@ button {
     dialog {
         max-width: 60vh;
     }
-.img_little {
-    width: 68px;
-    height: 68px;
-}
+
+    .img_little {
+        width: 68px;
+        height: 68px;
+    }
+
     .dialog_image {
         width: 60vh;
     }
@@ -196,8 +198,16 @@ button {
         width: 50vh;
     }
 
+    .dialog_image_div {
+        align-items: center;
+    }
+
     .dialog_image {
         width: 50vh;
+    }
+
+    h2 {
+        font-size: 18px;
     }
 }
 
