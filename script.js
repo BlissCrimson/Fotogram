@@ -61,7 +61,7 @@ let footerDialogRef = document.getElementById('footerDialog');
 // DIALOG
 // DIALOG OPEN/CLOSE
 // to open dialog
-function openDialog(indexDialog, event) {
+function openDialog(indexDialog) {
     dialogRef.showModal();
     if (indexDialog < 0) {
         indexDialog = myDialogImages.length - 1;
@@ -73,7 +73,7 @@ function openDialog(indexDialog, event) {
     showImage(indexDialog);
     showTitle(indexDialog);
     dialogTitle(indexDialog);
-    event.stopPropagation();
+    event.stopPropagation(event);
     return dialogRef.showModal(indexDialog);
 }
 // to close dialog
