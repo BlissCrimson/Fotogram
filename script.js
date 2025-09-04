@@ -52,9 +52,15 @@ let imageNumber = [
     "7",
     "8"
 ]
+
+let dialogRef = document.getElementById("imageDialog");
+let imageRef = document.getElementById('main_images');
+let titleDialogRef = document.getElementById('dialogTitle');
+let imgageDialogRef = document.getElementById('dialogImage');
+
 // DIALOG
 // DIALOG OPEN/CLOSE
-let dialogRef = document.getElementById("imageDialog");
+
 // to open dialog
 function openDialog(indexDialog) {
     dialogRef.showModal();
@@ -90,7 +96,7 @@ function initRendering() {
     renderDialogImage();
 }
 // MAIN IMG RENDERING
-let imageRef = document.getElementById('main_images');
+
 function renderMainImage() {
     imageRef.innerHTML = "";
     for (let indexImages = 0; indexImages < myMainImages.length; indexImages == indexImages++) {
@@ -110,30 +116,29 @@ function getImageMain(indexImages) {
             `
 }
 // DIALOG TITLE
-let titleDialogRef = document.getElementById('dialogTitle');
 
 function showTitle(indexDialog) {
     titleDialogRef.innerHTML = "";
     titleDialogRef.innerHTML += dialogTitle(indexDialog)
 }
+
 function dialogTitle(indexDialog) {
     return `${imagesNames[indexDialog]}`
 }
 // DIALOG IMAGE
-let imgageDialogRef = document.getElementById('dialogImage');
 
 function renderDialogImage() {
     imgageDialogRef.innerHTML = "";
     for (let indexImages = 0; indexImages < myDialogImages.length; indexImages == indexImages++) {
         imgageDialogRef.innerHTML += getImageMain(indexImages);
     }
-
 }
 
 function showImage(indexDialog) {
     imgageDialogRef.innerHTML = "";
     imgageDialogRef.innerHTML += dialogImage(indexDialog);
 }
+
 function dialogImage(indexDialog) {
     return `<img    class="dialog_image"
                     role="image"
